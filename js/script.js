@@ -1,6 +1,8 @@
 let searchContainer = document.getElementsByClassName('search-container');
 let gallery = document.getElementById('gallery');
 
+
+
 fetch('https://randomuser.me/api/?results=12')
     .then(response => response.json())
     .then(data => displayGallery(data))
@@ -21,4 +23,30 @@ fetch('https://randomuser.me/api/?results=12')
         </div>`
         )
     })
+    return data
  }
+
+
+    function sayHi () {
+        console.log('hi');
+    };
+
+let cards = document.getElementsByClassName('card');
+
+//let cardArray = [...cards];
+
+//let cardArray = Array.from(cards);
+
+//let cardArray = [].slice.call(cards);
+
+// let cardArray = []
+// for (i=0; i<cards.length; i++) {
+//     console.log(cards[i]);
+//     cardArray.push(cards[i]);
+// };
+
+console.log(cards);
+console.log(cardArray);
+console.log(cardArray.length);
+
+//gallery.addEventListener( 'click', sayHi);
