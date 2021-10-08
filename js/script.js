@@ -55,27 +55,23 @@ function displayModalWindow (profile) {
                 <p class="modal-text">Birthday: ${formatDob(profile.dob.date)}</p>
             </div>
         </div>
-
-        // IMPORTANT: Below is only for exceeds tasks 
-        <div class="modal-btn-container">
-            <button type="button" id="modal-prev" class="modal-prev btn">Prev</button>
-            <button type="button" id="modal-next" class="modal-next btn">Next</button>
-        </div>
     </div>`)
 
+//event listener for closing the modal window
 let modalContainer = document.querySelector('.modal-container');
 const modalCloseBtn = document.getElementById('modal-close-btn');
 modalCloseBtn.addEventListener('click', () => {
     modalContainer.remove()
     });
 }
-
 // ------------------------------------------
 //  HELPER FUNCTIONS
 // ------------------------------------------
 
+//loops though cards when function is called to add event listener to each card
 function clickedModal (data) {
     let cardArray = [...cards];
+    console.log(cardArray);
         for ( let i = 0; i < data.length; i++) {
             cardArray[i].addEventListener('click', () => {
                 let cardData = data[i]
@@ -88,6 +84,7 @@ function clickedModal (data) {
 //  FORMATING FUNCTIONS
 // ------------------------------------------
 
+//reformats 10 digit numbers if not ten digits returns origanal string
 function formatPhoneNumber(profileNumber) {
   let cleaned = ('' + profileNumber).replace(/\D/g, '');
   let match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
@@ -97,6 +94,7 @@ function formatPhoneNumber(profileNumber) {
   return profileNumber
   }
 
+//formats DOB to only display birthday based on how many characters
 function formatDob(profileDOB) {
     const chars = profileDOB.split('');
     let dobArray = [];
